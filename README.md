@@ -1,59 +1,79 @@
 # Convo Hub
 
-Convo Hub is a Slack-style Flutter chat app built with BLoC, clean layering, Firebase integration, and a responsive desktop-first layout that still adapts cleanly to tablet and mobile screens.
+Convo Hub is a Flutter-based, Slack-style chat application with a responsive layout and real-time messaging support. The project uses a layered architecture (presentation, domain, data) and integrates with Firebase services when configured.
 
-## Features
+## Key Features
 
-- Google OAuth sign-in and sign-up
-- Email/password auth fallback
-- Firebase Auth, Firestore, Storage, Messaging, and Crashlytics integration points
-- Workspace, channel, and chat separation
-- Real-time message streams
-- Optimistic message send flow
-- Presence indicators
-- Responsive layout for desktop, tablet, and mobile
-- Dark mode support
+- Google Sign-In and email/password authentication
+- Workspaces, channels, and direct messages
+- Real-time messaging with optimistic UI updates
+- Presence indicators and message streams
+- Responsive UI for desktop, tablet, and mobile
 
-## Architecture
+## Architecture Overview
 
-```text
-UI -> BLoC -> UseCase -> Repository -> Data Source -> Firebase
+UI → BLoC → Use Cases → Repositories → Data Sources (Firebase / local seed)
 
-lib/
-	core/
-	data/
-	domain/
-	presentation/
+Repository layout (under `lib/`):
+- `core/`, `data/`, `domain/`, `presentation/`
+
+## Getting Started
+
+Prerequisites:
+
+- Flutter SDK (stable) installed
+- A Firebase project (optional; the app includes a local seeded data fallback)
+
+Quick start:
+
+1. Copy `.env.example` to `.env` and provide Firebase values if using Firebase.
+2. Install dependencies:
+
+```bash
+flutter pub get
 ```
 
-## Setup
+3. Run the app (example: Chrome):
 
-1. Copy [.env.example](.env.example) to [.env](.env) and fill in your Firebase values.
-2. Connect the app to a Firebase project.
-3. Run `flutter pub get`.
-4. Launch with `flutter run`.
+```bash
+flutter run -d chrome
+```
 
-## Firebase Fields
+4. Run widget tests:
 
-The app expects these environment variables:
+```bash
+flutter test
+```
 
-- `FIREBASE_API_KEY`
-- `FIREBASE_APP_ID`
-- `FIREBASE_MESSAGING_SENDER_ID`
-- `FIREBASE_PROJECT_ID`
-- `FIREBASE_STORAGE_BUCKET`
+## Environment Variables
 
-## Screens
+When Firebase integration is required, populate the following variables in the `.env` file (see `.env.example`):
 
-- Auth screen with Google OAuth and email/password fallback
-- Desktop/tablet three-pane workspace shell
-- Mobile compact navigation shell
+- FIREBASE_API_KEY
+- FIREBASE_APP_ID
+- FIREBASE_MESSAGING_SENDER_ID
+- FIREBASE_PROJECT_ID
+- FIREBASE_STORAGE_BUCKET
+- GOOGLE_WEB_CLIENT_ID
 
-## Notes
+If these values are not present, the app will run against seeded local data to enable UI exploration without Firebase.
 
-- When Firebase env values are missing, the app falls back to seeded local data so the UI can still be explored.
-- Firestore collections follow the structure described in `instructions.md`.
+## Project Structure
 
-## Placeholder Media
+- `lib/presentation` — UI and BLoC layers
+- `lib/domain` — entities and use cases
+- `lib/data` — repository implementations and models
+- `lib/core` — shared utilities and Firebase bootstrap logic
 
-- Screenshots: add exported app captures here once the Firebase project is connected.
+## Contribution
+
+Contributions are welcome. Open issues and pull requests should include a description of the change, motivation, and any manual testing steps.
+
+## License
+
+This repository does not include a license file. Add a license (for example, MIT) if the project will be published.
+
+## Further Notes
+
+- See [instructions.md](instructions.md) for detailed Firebase setup and collection structure.
+- Sensitive files (for example service account JSON files or the final `.env`) should not be committed to the repository.
