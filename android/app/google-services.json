@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "229586973641",
+    "project_id": "convohub-v1",
+    "storage_bucket": "convohub-v1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229586973641:android:6439c742af6e7c77cdee18",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229586973641-mn2gdbtjfqge9o5j61cijbp0f3cimrd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPvjFDy3ZNXU0xMmlnHs9Bp0QkCD5Dl6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229586973641-mn2gdbtjfqge9o5j61cijbp0f3cimrd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
